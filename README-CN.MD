@@ -15,24 +15,24 @@
 
 <p align="center">
   <b>
-    <a href="https://github.com/waynecz/vue-img-inputer/blob/master/README-CN.MD">点击查看中文文档</a>
+    <a href="https://segmentfault.com/a/1190000008503338">教程：从 0 开始做一个文件选择(上传)组件</a>
     |
-    <a href="http://waynecz.github.io/VueImgInputer/index.html">Have a glance at Demo</a>
+    <a href="http://waynecz.github.io/VueImgInputer/index.html">查看 Demo</a>
   </b>
 </p>
 
 <br>
 
-## Intro
+## 简介
 
-- `<input type="file" />` like, only support single image
-- auto-upload
-- drop-select / preview / use as `<img />` as well
-- optional skins
+- 就像 `<input type="file" />`，不支持多图片选择
+- 自动上传功能
+- 拖拽选择、预览、也可以当 `<img/>` 使用
+- 两套主题，其他高度定制
 
 <br>
 
-## Screenshots
+## 截图
 
 <p align="center">
   <img height="180px" src="./src/assets/screenshot.gif"/>
@@ -40,7 +40,7 @@
 
 <br>
 
-## Install and Usage
+## 使用
 
 ```bash
 npm install vue-img-inputer
@@ -59,91 +59,90 @@ Vue.component('ImgInputer', ImgInputer)
 
 <br>
 
-## API
+## 接口
 
-<details><summary><strong><code>Auto upload</code> related</strong></summary>
+<details><summary><strong><code>自动上传</code> 相关</strong></summary>
 <br>
 
 1.  **`auto-uoload`**: Boolean  
-    set to enable auto-upload
+    设置开启自动上传功能
 
 2.  **`action`**: String  
-    upload request URL
+    上传的 URL
 
 3.  **`upload-key`**: String  
     **default**: `file`  
-    key name in form-data
+    图片在 form-data 中的 key 名
 
 4.  **`extra-data`**: Object  
-    extra data append in request's form-data
+    上传的额外数据
 
 5.  **`headers`**: Object  
-    set additional headers of request
+    上传的额外 headers
 
 6.  **`with-cookie`**: Boolean  
-    whether cookies will send
+    是否携带 cookie
 
 7.  **`on-start`**: Function  
     **params**: func ( file )  
-    hook function when upload start
+    上传开始的钩子函数
 
 8.  **`on-progress`**: Function  
     **params**: func ( event, file )  
-    hook function when uploading, get progress by `event.percent`
+    上传中的钩子函数，可以通过 `event.percent` 获得当前上传进度
 
 9.  **`on-success`**: Function  
     **params**: func ( res, file )  
-    hook function when upload success, `res` is response from server
+    上传成功的钩子函数，`res` 是服务端返回的数据
 
 10. **`on-error`**: Function  
     **params**: func ( err, file )  
-    hook function when upload failed
+    上传失败的钩子函数
 
 <br/>
 </details>
 
-<details><summary><strong><code>Input tag</code> related</strong></summary>
+<details><summary><strong><code>Input 标签</code> 相关</strong></summary>
 <br>
 
 1.  **`accept`**: String  
     **default**: `image/*,video/*;`  
-    suggest to set a specific value like `image/jpg,image/gif;` for wildcard will lead to a serious delay
+    建议设置成像 `image/jpg,image/gif;` 之类的具体指，不然可能造成文件夹呼出特别慢
 
 2.  **`placeholder`**: String  
     **default**: `点击或拖拽选择图片`
 
 3.  **`id`**: String  
-    **default**: random string in 4 length  
-    id of input tag
+    **default**: random string in 4 length
 
 4.  **`readonly`**: Boolean
 
 5.  **`capture`**: Boolean  
     **default**: `false`  
-    whether use camera directly in mobile
+    在移动端是否直接呼出相机
 
 6.  **`max-size`**: Number  
     **default**: 5120  
-    max-size of image (KB)
+    图片大小限制 (KB)
 
 7.  **`name`**: Boolean  
-    name of input tag
+    原生 name 属性
 
-8.  **`any input's attribute`**: any
-    any input's origin attributes set for component will inherit by inner input tag
+8.  **`任意 input 的原生属性`**: any
+    任意 input 的原生属性都将继承给内部的 input 标签
 
 <br/>
 </details>
 
-<details><summary><strong><code>UI</code> related</strong></summary>
+<details><summary><strong><code>视觉 </code> related</strong></summary>
 <br>
 
 1.  **`img-src`**: String  
-    image resource let component behavior like `<img />`
+    图片回填地址，设置后组件将会像 `<img />` 标签一样
 
 2.  **`theme`**: String  
     **default**: `material`
-    two themes optional (light / material)
+    两套主题 (light / material)
 
 3.  **`size`**: String
     small / normal / large
@@ -152,40 +151,40 @@ Vue.component('ImgInputer', ImgInputer)
     clip / img / img2
 
 5.  **`ali-icon`**: String  
-    if you use [iconfont.cn](http://iconfont.cn/), set unicode of any icon to custom
+    如果你用了 [iconfont.cn](http://iconfont.cn/), 可以设置你项目里的 icon unicode 值
 
 6.  **`no-mask`**: Boolean  
-    remove mask when hover
+    去除 hover 蒙版
 
 7.  **`no-hover-effect`**: Boolean  
-    remove all hover effect (include text) when hover
+    去除所有 hover 效果
 
 8.  **`bottom-text`**: String  
     **default**: `点击或拖拽图片以修改`  
-    text in the bottom when hover
+    hover 后底部的文字
 
 9.  **`readonly-tip-text`**: String  
     **default**: `不可更改`  
-    visible only the state is `readonly`, cover bottom-text
+    只读情况下底部的文字
 
 <br/>
 </details>
 
-<details><summary><strong><code>Events</code></strong></summary>
+<details><summary><strong><code>事件</code></strong></summary>
 <br>
 
 1.  **`on-change`**: Function  
     **params**: func ( file, fileName )  
-    hook function when file selected
+    文件更改时的钩子函数
 
 <br/>
 </details>
 
-<details><summary><strong><code>Methods</code></strong></summary>
+<details><summary><strong><code>组件方法</code></strong></summary>
 <br>
 
 1.  **`reset`**  
-    reset componet but will not clear `img-src`
+    重置组建的数据，但不重置 `img-src`
 
 <br/>
 </details>
