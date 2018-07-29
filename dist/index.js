@@ -426,7 +426,6 @@
             _this3.onProgress(e, file);
           },
           onSuccess: function onSuccess(res) {
-			console.log('222222');
             _this3.uploadPercent = 0;
             _this3.uploading = false;
             _this3.uploaded = true;
@@ -439,7 +438,8 @@
             _this3.uploading = false;
             _this3.uploadFailed = true;
 
-            _this3.onError(err, file);
+            // _this3.onError(err, file);
+			_this3.$emit('onError', err, file);
           }
         };
         upload(options);
