@@ -428,7 +428,6 @@ export default {
         },
 
         onSuccess: res => {
-          console.log('2222222222222')
           this.uploadPercent = 0
           this.uploading = false
           this.uploaded = true
@@ -440,7 +439,8 @@ export default {
           this.uploadPercent = 0
           this.uploading = false
           this.uploadFailed = true
-          this.onError(err, file)
+          // this.onError(err, file)
+		  this.$emit('onError', err, file)
         }
       }
 
